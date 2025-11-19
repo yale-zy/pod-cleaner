@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: test01
+---    
+apiVersion: v1
+kind: Pod
+metadata:
+  name: completed-pod
+  namespace: test01
+spec:
+  restartPolicy: Never
+  containers:
+  - name: test-container
+    image: busybox:latest
+    command: ["/bin/sh"]
+    args: ["-c", "exit 0"]
